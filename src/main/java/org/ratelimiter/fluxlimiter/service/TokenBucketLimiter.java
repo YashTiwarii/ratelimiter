@@ -1,7 +1,7 @@
-package com.sirhashir.fluxlimiter.service;
+package org.ratelimiter.fluxlimiter.service;
 
-import com.sirhashir.fluxlimiter.model.CheckResponse;
-import com.sirhashir.fluxlimiter.model.TenantConfig;
+import org.ratelimiter.fluxlimiter.model.CheckResponse;
+import org.ratelimiter.fluxlimiter.model.TenantConfig;
 import jakarta.annotation.PostConstruct;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.data.redis.core.StringRedisTemplate;
@@ -12,37 +12,40 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class FixedWindowLimiter implements RateLimiter {
+public class TokenBucketLimiter implements RateLimiter{
 
     private final StringRedisTemplate redisTemplate;
     private DefaultRedisScript<List> script;
 
-    public FixedWindowLimiter(StringRedisTemplate redisTemplate) {
+    public TokenBucketLimiter(StringRedisTemplate redisTemplate) {
         this.redisTemplate = redisTemplate;
     }
 
     @PostConstruct
     public void init() {
         script = new DefaultRedisScript<>();
-        script.setScriptSource(new ResourceScriptSource(new ClassPathResource("scripts/fixed_window.lua")));
+        script.setScriptSource(new ResourceScriptSource(new ClassPathResource("scripts/token_bucket.lua")));
         script.setResultType(List.class);
     }
 
     @Override
     public CheckResponse check(String key, TenantConfig config) {
+        double refillRate = (double) config.getLimit() / config.getWindowSeconds();
         long now = System.currentTimeMillis() / 1000;
 
-        List<Long> res = redisTemplate.execute(
+        List<Long> result = redisTemplate.execute(
                 script,
                 List.of(key),
                 String.valueOf(config.getLimit()),
-                String.valueOf(config.getWindowSeconds()),
+                String.valueOf(refillRate),
                 String.valueOf(now)
         );
-        boolean allowed = res.get(0) == 1L;
-        long remaining = res.get(1);
-        long reset = res.get(2);
 
-        return new CheckResponse(allowed, remaining, reset);
+        boolean allowed = result.get(0) == 1L;
+        long remaining = result.get(1);
+        long retryAfter = result.get(2);
+        long resetAt = allowed ? now + config.getWindowSeconds() : now + retryAfter;
+
+        return new CheckResponse(allowed, remaining, resetAt);
     }
 }

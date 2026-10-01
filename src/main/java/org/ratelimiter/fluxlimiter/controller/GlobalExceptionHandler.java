@@ -1,6 +1,6 @@
-package com.sirhashir.fluxlimiter.controller;
+package org.ratelimiter.fluxlimiter.controller;
 
-import com.sirhashir.fluxlimiter.exception.TenantNotFoundException;
+import org.ratelimiter.fluxlimiter.exception.TenantNotFoundException;
 import io.lettuce.core.RedisCommandTimeoutException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.redis.RedisConnectionFailureException;

@@ -1,4 +1,4 @@
-package com.sirhashir.fluxlimiter.model;
+package org.ratelimiter.fluxlimiter.model;
 
 public enum Algorithm {
     TOKEN_BUCKET,

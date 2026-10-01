@@ -1,4 +1,4 @@
-package com.sirhashir.fluxlimiter;
+package org.ratelimiter.fluxlimiter;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

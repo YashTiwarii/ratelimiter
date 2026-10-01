@@ -1,6 +1,6 @@
-package com.sirhashir.fluxlimiter.service;
+package org.ratelimiter.fluxlimiter.service;
 
-import com.sirhashir.fluxlimiter.model.Algorithm;
+import org.ratelimiter.fluxlimiter.model.Algorithm;
 import jakarta.annotation.PostConstruct;
 import org.springframework.stereotype.Component;
 

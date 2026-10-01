@@ -1,8 +1,8 @@
-package com.sirhashir.fluxlimiter.service;
+package org.ratelimiter.fluxlimiter.service;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.sirhashir.fluxlimiter.model.TenantConfig;
+import org.ratelimiter.fluxlimiter.model.TenantConfig;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Service;
 

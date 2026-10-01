@@ -1,4 +1,4 @@
-package com.sirhashir.fluxlimiter.exception;
+package org.ratelimiter.fluxlimiter.exception;
 
 public class TenantNotFoundException extends RuntimeException {
 

@@ -1,7 +1,7 @@
-package com.sirhashir.fluxlimiter.controller;
+package org.ratelimiter.fluxlimiter.controller;
 
-import com.sirhashir.fluxlimiter.model.TenantConfig;
-import com.sirhashir.fluxlimiter.service.TenantConfigService;
+import org.ratelimiter.fluxlimiter.model.TenantConfig;
+import org.ratelimiter.fluxlimiter.service.TenantConfigService;
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;

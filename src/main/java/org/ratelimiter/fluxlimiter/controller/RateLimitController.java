@@ -1,11 +1,11 @@
-package com.sirhashir.fluxlimiter.controller;
+package org.ratelimiter.fluxlimiter.controller;
 
-import com.sirhashir.fluxlimiter.model.CheckRequest;
-import com.sirhashir.fluxlimiter.model.CheckResponse;
-import com.sirhashir.fluxlimiter.model.TenantConfig;
-import com.sirhashir.fluxlimiter.service.RateLimiter;
-import com.sirhashir.fluxlimiter.service.RateLimiterFactory;
-import com.sirhashir.fluxlimiter.service.TenantConfigService;
+import org.ratelimiter.fluxlimiter.model.CheckRequest;
+import org.ratelimiter.fluxlimiter.model.CheckResponse;
+import org.ratelimiter.fluxlimiter.model.TenantConfig;
+import org.ratelimiter.fluxlimiter.service.RateLimiter;
+import org.ratelimiter.fluxlimiter.service.RateLimiterFactory;
+import org.ratelimiter.fluxlimiter.service.TenantConfigService;
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.sirhashir.fluxlimiter.exception.TenantNotFoundException;
+import org.ratelimiter.fluxlimiter.exception.TenantNotFoundException;
 
 @RestController
 @RequestMapping("/api")

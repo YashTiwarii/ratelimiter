@@ -1,4 +1,4 @@
-package com.sirhashir.fluxlimiter.model;
+package org.ratelimiter.fluxlimiter.model;
 
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;

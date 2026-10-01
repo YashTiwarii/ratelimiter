@@ -1,9 +1,9 @@
-package com.sirhashir.fluxlimiter;
+package org.ratelimiter.fluxlimiter;
 
-import com.sirhashir.fluxlimiter.model.Algorithm;
-import com.sirhashir.fluxlimiter.model.CheckResponse;
-import com.sirhashir.fluxlimiter.model.TenantConfig;
-import com.sirhashir.fluxlimiter.service.TokenBucketLimiter;
+import org.ratelimiter.fluxlimiter.model.Algorithm;
+import org.ratelimiter.fluxlimiter.model.CheckResponse;
+import org.ratelimiter.fluxlimiter.model.TenantConfig;
+import org.ratelimiter.fluxlimiter.service.TokenBucketLimiter;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

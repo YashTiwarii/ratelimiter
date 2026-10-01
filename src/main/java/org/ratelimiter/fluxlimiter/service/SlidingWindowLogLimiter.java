@@ -1,7 +1,7 @@
-package com.sirhashir.fluxlimiter.service;
+package org.ratelimiter.fluxlimiter.service;
 
-import com.sirhashir.fluxlimiter.model.CheckResponse;
-import com.sirhashir.fluxlimiter.model.TenantConfig;
+import org.ratelimiter.fluxlimiter.model.CheckResponse;
+import org.ratelimiter.fluxlimiter.model.TenantConfig;
 import jakarta.annotation.PostConstruct;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.data.redis.core.StringRedisTemplate;

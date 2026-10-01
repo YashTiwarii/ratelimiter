@@ -56,8 +56,8 @@ If you're building a real rate limiter and don't have a specific reason otherwis
 You need Docker Desktop running. Then:
 
 ```bash
-git clone https://github.com/sirhashir/flux-limiter
-cd flux-limiter
+git clone https://github.com/YashTiwarii/ratelimiter
+cd ratelimiter
 docker compose up -d
 ```
 
@@ -183,7 +183,7 @@ Currently fail-closed: 503 to all clients with a clean error response. In produc
 ## Project structure
 
 ```
-src/main/java/com/sirhashir/fluxlimiter/
+src/main/java/org/ratelimiter/fluxlimiter/
 ├── controller/      # HTTP layer
 ├── service/         # Business logic + algorithm implementations
 ├── model/           # DTOs and the Algorithm enum
